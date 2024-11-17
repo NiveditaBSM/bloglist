@@ -1,0 +1,31 @@
+{
+  "name": "blogsbackend",
+  "version": "1.0.0",
+  "description": "backend to save/bookmark blogs",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "test": "cross-env NODE_ENV=test node --test",
+    "build:ui": "rm rf dist && cd ../bloglist-frontend && npm run build && cp -r dist ../bloglist-fullstack",
+    "deploy:current": "git add . && git commit -m 'built for deploying' && git push",
+    "deploy:full": "npm run deploy:ui && git add . && git commit -m 'uibuild && git push"
+  },
+  "author": "Nivedita",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.7.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.7"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "supertest": "^7.0.0"
+  }
+}
