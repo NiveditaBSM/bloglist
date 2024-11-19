@@ -6,17 +6,25 @@ const userSchema = new mongoose.Schema({
         ref: 'Blog'
     }],
     name: String,
+    name: {
+        type: String,
+        required: [true, 'is required'],
+    },
     username: {
         type: String,
         minLength: [3, 'is expected to have at least 3 characters'],
         required: [true, 'is required'],
-        unique: true
+    },
+    email: {
+        type: String,
+        required: [true, 'is required'],
     },
     passwordHash: {
         type: String,
         required: [true, 'is required']
-    }
-})
+    },
+    isVerified: { type: Boolean, default: false },
+}, { timestamps: true })
 
 userSchema.set('toJSON', {
     transform: (document, requiredObject) => {

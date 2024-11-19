@@ -7,7 +7,7 @@
     "start": "cross-env NODE_ENV=production node index.js",
     "dev": "cross-env NODE_ENV=development nodemon index.js",
     "test": "cross-env NODE_ENV=test node --test",
-    "build:ui": "rm rf dist && cd ../bloglist-frontend && npm run build && cp -r dist ../bloglist-fullstack",
+    "build:frontend": "rm -rf dist && cd ../bloglist-frontend && npm run build && cp -r dist ../bloglist-fullstack",
     "deploy:current": "git add . && git commit -m 'built for deploying' && git push",
     "deploy:full": "npm run deploy:ui && git add . && git commit -m 'uibuild && git push"
   },
@@ -19,9 +19,12 @@
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "express-async-errors": "^3.1.1",
+    "form-data": "^4.0.1",
     "jsonwebtoken": "^9.0.2",
+    "mailgun.js": "^10.2.3",
     "mongoose": "^8.7.2",
     "morgan": "^1.10.0",
+    "nodemailer": "^6.9.16",
     "nodemon": "^3.1.7"
   },
   "devDependencies": {
